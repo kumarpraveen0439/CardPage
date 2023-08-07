@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Cart</title>
+        <style>
+            body{
+                margin: 2%;
+                font-size: 14.461px;
+                font-family: "Helvetica Neue", Arial, sans-serif,Metropolis;
+            }
+            .header_box, .footer_box {
+                padding: 0;
+                height: 35px;
+                min-width: 33.5%;
+            }
+            .footer_box{
+                height: 20px !important;
+            }
+            .footer_inner{
+                /* margin-bottom: 10px; */
+                margin: 5px 0px 18px;
+            }
+            .header{
+                color: #007F61;
+                /* font-family: Metropolis; */
+                font-size: 18.076px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                padding: 0px 1.5%;
+            }
+            .line{
+                display: block;
+                width: 28%;
+                height: 0.904px;
+                background: #C8C8C8;
+            }
+            .dflex{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            span.dflex {
+                /* padding: 0px 15px; */
+                padding: 0px 15px 0px 5px;
+                width: 31.1%;
+                height: 74.112px;
+                flex-shrink: 0;
+                border-radius: 3.615px;
+                border: 0.904px solid #C8C8C8;
+                background: #FFF;
+            }
+            .radio_btn{
+                width: 14.461px;
+                height: 14.461px;
+                flex-shrink: 0;
+                stroke-width: 0.904px;
+                stroke: #DADADA;
+            }
+            .m-b{
+                margin-bottom: 15px;
+            }
+            div.card {
+                padding: 18px 15px 18px 0px;
+                width: 32.1%;
+                border-radius: 3.615px;
+                border: 0.904px solid #C8C8C8;
+                background: #FFF;
+            }
+            span.card_inner, span.header_inner, span.footer_inner{
+                border-radius: 3.615px;
+                background: #FFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+            span.header_inner, span.footer_inner{
+                justify-content: space-between !important;
+            }
+            .price{
+                width: 54%;
+                padding-left: 5%;
+                line-height: 22px;
+            }
+            .price p {
+                margin: 0;
+            }
+            .price p:first-child {
+                color: #434040;
+                font-size: 14.461px;
+                font-style: normal;
+                /* line-height: normal; */
+            }
+            .price p:last-child {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .price p:last-child span {
+                color: #000;
+                display: none;
+                font-size: 10.942px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                opacity: 0.3;
+                float: right;
+                padding-right: 10%;
+                text-decoration: line-through;
+            }
+
+            .percentoff {
+                line-height: 20px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: end;
+                min-width: 24%;
+            }
+            .percentoff p{
+                margin: 0;
+            }
+            .percentoff p:first-child {
+                display: none;
+                color: #007F61;
+                font-size: 12.653px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                /* padding-bottom: 2px; */
+                margin-bottom: 7px;
+            }
+            .percentoff p:last-child {
+                color: #000;
+                font-size: 14.461px;
+                padding-top: 1px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                text-transform: uppercase;
+            }
+
+            .radio_btn {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #DADADA;
+                border-radius: 50%;
+                outline: none;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            /* Style the custom radio button */
+            .radio_btn::before {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+            }
+            
+            .radio_btn:checked {
+                border: 2px solid #007F61;
+            }
+            
+            .radio_btn:checked::before {
+                background-color: #007F61;
+            }
+
+            .container{
+                display: flex;
+                padding-left: 11.5%;
+            }
+
+            .side-section, .color-section{
+                display: flex;
+                flex-direction: column;
+                width: 23%;
+                margin-right: 6px;
+            }
+
+            .side-section label, .color-section label, .number_section div {
+                color: #000;
+                font-size: 9.942px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            .number_section{
+                margin-right: 2.5%;
+                padding-top: 28px;
+            }
+            .number_section div:last-child {
+                margin-top: 24px;
+            }
+            .side-section label, .color-section label {
+                margin: 10px 0px 2px 0px;
+            }
+            .side-section select, .color-section select {
+                border-radius: 1.808px;
+                border: 0.904px solid #D9D9D9;
+                background: #FFF;
+                width: 65.978px;
+                height: 25.306px;
+                margin: 5px 0px;
+            }
+            .number_section div {
+                margin: 8.3px 0px;
+            }
+
+            #side-dropdown-1, #side-dropdown-2, #color-dropdown-1, #color-dropdown-2 {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                padding-right: 15px;
+                cursor: pointer;
+                outline: none;
+                padding-left: 10px;
+            }
+
+            .select-wrapper {
+                position: relative;
+            }
+
+            .icon-wrapper {
+                position: relative;
+                right: -54px;
+                bottom: 28px;
+                height: 0;
+                width: 0;
+                transform: translateY(-50%);
+                pointer-events: none;
+            }
+
+            .icon-wrapper svg {
+                width: 6px;
+                height: 5px;
+                fill: black;
+            }
+            /* footer{
+                margin: 20px 0px;
+            } */
+            .day_shipping{
+                color: #007F61;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                opacity: 0.8;
+            }
+            .total_dkk{
+                color: #000;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+            .Add_btn{
+                width: 100%;
+                height: 48px;
+                border-radius: 4px;
+                background: #007F61;
+                cursor: pointer;
+                border: 1px solid #007F61;
+                color: #fff;
+                outline: none;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: normal;
+                margin-bottom: 10px;
+            }
+            .total_dkk span {
+                color: #000;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+            .copy_right{
+                color: #444;
+                font-size: 13px;
+                font-style: italic;
+                font-weight: 500;
+                line-height: normal;
+                opacity: 0.8;
+                float: right;
+            }
+
+            /* Media query for screen width up to 1011 pixels */
+            @media screen and (max-width: 1001px) {
+                body {
+                font-size: 14px;
+                }
+                .header_box, .footer_box{
+                    min-width: 46%;
+                }
+                div.card{
+                    min-width: 44.5%;
+                }
+            }
+            /* Media query for screen width up to 776 pixels */
+            @media screen and (max-width: 713px) {
+                .header_box, .footer_box{
+                    min-width: 60.5%;
+                }
+                div.card{
+                    min-width: 58.5%;
+                }
+            }
+            /* Media query for screen width up to 541 pixels */
+            @media screen and (max-width: 541px) {
+                .header_box, .footer_box{
+                    min-width: 80.5%;
+                }
+                div.card{
+                    min-width: 78.5%;
+                }
+            }
+            /* Media query for screen width up to 408 pixels */
+            @media screen and (max-width: 408px) {
+                .header_box, .footer_box{
+                    min-width: 95.5%;
+                }
+                div.card{
+                    min-width: 92.5%;
+                }
+            }
+            /* Media query for screen width up to 336 pixels */
+            @media screen and (max-width:336px) {
+                .header_box, .footer_box{
+                    min-width: 99%;
+                }
+                div.card{
+                    min-width: 97%;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <div class="dflex m-b">
+                <div class="header_box">
+                    <span class="header_inner">
+                        <span class="line"></span>
+                        <h1 class="header">Bundle & Save</h1>
+                        <span class="line"></span>
+                    </span>
+                </div>
+            </div>
+        </header>
+        <section id="cardsSection"></section>
+        <footer>
+            <div class="dflex m-b">
+                <div class="footer_box">
+                    <span class="footer_inner">
+                        <span class="day_shipping">Free 2 Day Shipping</span>
+                        <span class="total_dkk">Total : <span>DDK 00.00</span></span>
+                    </span>
+                    <button class="Add_btn">+ Add to Cart</button>
+                    <div class="copy_right">&copy Powered by pumper</div>
+                </div>
+            </div>
+        </footer>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const cardsData = [
+                    {
+                    title: "1 Pair",
+                    price: "DKK 195.00",
+                    discountedPrice: "DKK 230.00",
+                    discount: "50% off",
+                    },
+                    {
+                    title: "2 Pair",
+                    price: "DKK 345.00",
+                    discountedPrice: "DKK 450.00",
+                    discount: "40% off",
+                    },
+                    {
+                    title: "3 Pair",
+                    price: "DKK 528.00",
+                    discountedPrice: "DKK 710.00",
+                    discount: "60% off",
+                    },
+                ];
+
+                // Function to create a card element
+                function createCard(cardData, cardNumber) {
+                    const cardDiv = document.createElement("div");
+                    cardDiv.className = "dflex m-b";
+
+                    const card = document.createElement("div");
+                    card.className = `card card${cardNumber}`;
+
+                    const cardInner = document.createElement("span");
+                    cardInner.className = "card_inner";
+
+                    const radioBtn = document.createElement("input");
+                    radioBtn.className = "radio_btn";
+                    radioBtn.type = "radio";
+                    radioBtn.name = "radioButton";
+                    radioBtn.dataset.content = cardNumber;
+
+                    const price = document.createElement("div");
+                    price.className = "price";
+                    price.innerHTML = `<p>${cardData.title}</p><p><label>${cardData.price}</label><span>${cardData.discountedPrice}</span></p>`;
+
+                    const percentOff = document.createElement("div");
+                    percentOff.className = "percentoff";
+                    percentOff.innerHTML = `<p>Most Popular</p><p>${cardData.discount}</p>`;
+
+                    cardInner.appendChild(radioBtn);
+                    cardInner.appendChild(price);
+                    cardInner.appendChild(percentOff);
+                    card.appendChild(cardInner);
+                    cardDiv.appendChild(card);
+
+                    return cardDiv;
+                }
+
+                // Function to add all the cards to the section
+                function addCardsToSection(cardsData) {
+                    const section = document.getElementById("cardsSection");
+                    cardsData.forEach((cardData, index) => {
+                    const card = createCard(cardData, index + 1);
+                    section.appendChild(card);
+                    });
+                }
+
+                // Call the function to add the cards to the section
+                addCardsToSection(cardsData);
+
+                });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+            const radioButtons = document.querySelectorAll(".radio_btn");
+            const cards = document.querySelectorAll(".card");
+            const cards_inner = document.querySelectorAll(".card_inner");
+            // const appendedContent = document.getElementById("appendedContent");
+
+            function appendCodeBelowCard(selectedCard) {
+                //Update  total value
+                const priceLabel = selectedCard.querySelector(".price p:last-child label");
+                const priceLabelText =  priceLabel ? priceLabel.innerText : "";
+                const totalDkkSpan = document.querySelector(".total_dkk span");
+                console.log(totalDkkSpan);
+                if (totalDkkSpan) {
+                    totalDkkSpan.innerText = priceLabelText;
+                }
+
+                // Create a container div for the code
+                const codeContainer = document.createElement("div");
+                codeContainer.className = "container";
+
+                // Add the code content inside the container
+                codeContainer.innerHTML = `
+                    <div class="number_section">
+                        <div>#1</div>
+                        <div>#2</div>
+                    </div>
+                    <div class="side-section">
+                        <label>Size</label>
+                        <select id="side-dropdown-1">
+                            <option>Small</option>
+                            <option>Medium</option>
+                        </select>
+                        <div class="icon-wrapper">
+                            <svg width="6" height="5" viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.26369 4.7583L0.915539 0.691186L5.61184 0.691187L3.26369 4.7583Z" fill="black"></path>
+                            </svg>
+                        </div>
+                        <select id="side-dropdown-2">
+                            <option>Large</option>
+                            <option>Extra Large</option>
+                        </select>
+                        <div class="icon-wrapper">
+                            <svg width="6" height="5" viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.26369 4.7583L0.915539 0.691186L5.61184 0.691187L3.26369 4.7583Z" fill="black"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="color-section">
+                        <label>Colour</label>
+                        <div>
+                            <select id="color-dropdown-1">
+                                <option>Yellow</option>
+                                <option>Pink</option>
+                            </select>
+                            <div class="icon-wrapper">
+                                <svg width="6" height="5" viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.26369 4.7583L0.915539 0.691186L5.61184 0.691187L3.26369 4.7583Z" fill="black"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <select id="color-dropdown-2">
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                        <div class="icon-wrapper">
+                            <svg width="6" height="5" viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.26369 4.7583L0.915539 0.691186L5.61184 0.691187L3.26369 4.7583Z" fill="black"></path>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+
+                // Insert the code container after the selected card
+                selectedCard.appendChild(codeContainer);
+            }
+
+            function handleRadioClick(event) {
+                const selectedContent = event.target.getAttribute("data-content");
+                const selectedCard = document.querySelector(`.card${selectedContent}`);
+
+                cards.forEach((card) => {
+                    const isChecked = card.querySelector(".radio_btn").checked;
+                    
+                    // Update .price p:last-child span and .percentoff p:first-child display
+                    const priceParagraph = card.querySelector(".price p:last-child span");
+                    const percentOffParagraph = card.querySelector(".percentoff p:first-child");
+                    priceParagraph.style.display = isChecked ? "block" : "none";
+                    percentOffParagraph.style.display = isChecked ? "block" : "none";
+
+                    // Update div.card border and background
+                    const cardStyles = card.style;
+                    cardStyles.border = isChecked ? "0.904px solid #007F61" : "0.904px solid #C8C8C8";
+                    cardStyles.background = isChecked ? "#F4FBF9" : "#FFF";
+                });
+
+                cards_inner.forEach((card_inner) => {
+                    const isChecked = card_inner.querySelector(".radio_btn").checked;
+                    // Update inner_card background
+                    const cardStyles = card_inner.style;
+                    cardStyles.background = isChecked ? "#F4FBF9" : "#FFF";
+                });
+
+                // Remove any existing code containers
+                const existingCodeContainers = document.querySelectorAll(".container");
+                existingCodeContainers.forEach((container) => container.remove());
+
+                // Append the code container below the selected card
+                appendCodeBelowCard(selectedCard);
+            }
+
+            radioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener("click", handleRadioClick);
+            });
+        });
+        </script>
+    </body>
+</html>
